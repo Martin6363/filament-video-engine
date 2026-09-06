@@ -144,7 +144,7 @@ Purchase a license, then set the key in `.env`:
 FILAMENT_VIDEO_ENGINE_LICENSE_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Without a valid key the package stays installed, but the picker and encoding pipeline stay locked (see [License key](#license-key)).
+(see [License key](#license-key)).
 
 ### 6. Link storage and check FFmpeg
 

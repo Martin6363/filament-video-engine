@@ -65,26 +65,6 @@ No third-party transcoding SaaS. You run FFmpeg on a worker.
 
 ---
 
-## How it works
-
-```
-Upload source video (Filament picker or your code)
-        │
-        ▼
-VideoMedia created (UUID, status: queued)
-        │
-        ▼
-Queue worker (video-engine)
-  • Probe source (width, height, duration)
-  • Poster: custom upload or extract a frame
-  • Encode each allowed quality (never above source height)
-  • Burn watermark into each rendition (if enabled + image set)
-  • Write HLS segments + master.m3u8
-        │
-        ▼
-Status: completed  →  Player / API serve streams
-```
-
 **Important:** Watermark and HLS segments are baked in at encode time. Changing the watermark image later updates the database only — use **Apply watermark to streams** (or regenerate qualities) to refresh existing playback.
 
 ---

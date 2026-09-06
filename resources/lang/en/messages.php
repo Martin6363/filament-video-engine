@@ -1,0 +1,143 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+    'license' => [
+        'invalid_banner' => 'Filament Video Engine license key is missing or invalid. Please set FILAMENT_VIDEO_ENGINE_LICENSE_KEY in your .env file.',
+    ],
+
+    'status' => [
+        'pending' => 'Pending',
+        'queued' => 'Queued',
+        'uploading' => 'Uploading',
+        'processing' => 'Processing',
+        'completed' => 'Completed',
+        'partial' => 'Partial',
+        'failed' => 'Failed',
+        'cancelled' => 'Cancelled',
+    ],
+
+    'conversion_type' => [
+        'hls_rendition' => 'HLS Rendition',
+        'hls_master' => 'HLS Master',
+        'progressive' => 'Progressive',
+        'poster' => 'Poster',
+        'thumbnail' => 'Thumbnail',
+        'preview_sprite' => 'Preview Sprite',
+    ],
+
+    'api' => [
+        'invalid_signature' => 'This video URL signature is invalid or has expired.',
+        'unauthenticated' => 'Authentication is required to access this video.',
+    ],
+
+    'transcoding' => [
+        'partial_qualities_failed' => 'One or more target qualities failed during FFmpeg processing. Successful renditions remain available.',
+    ],
+
+    'resource' => [
+        'label' => 'Video',
+        'plural' => 'Videos',
+        'source_badge' => 'Source: :quality',
+        'sections' => [
+            'preview' => 'Video preview',
+            'media' => 'Media',
+            'poster' => 'Poster & Thumbnail',
+        ],
+        'fields' => [
+            'title' => 'Title',
+            'progress' => 'Progress',
+            'filename' => 'Filename',
+            'duration' => 'Duration (s)',
+            'custom_poster' => 'Custom poster',
+            'thumbnail_at' => 'Extract frame at (seconds)',
+            'poster' => 'Poster image',
+            'thumbnail' => 'Poster',
+            'quality' => 'Quality',
+            'qualities' => 'Qualities',
+            'source_quality' => 'Original quality',
+            'deleted_at' => 'Deleted at',
+        ],
+        'helpers' => [
+            'thumbnail_at' => 'Used when no custom poster is uploaded. Default is 5.0 seconds.',
+            'skipped_qualities' => 'Source video is :source. Higher resolution target qualities (:qualities) were skipped automatically to preserve quality.',
+            'regenerate_quality_limited' => 'Source video is :source. Qualities above the original resolution are disabled to prevent upscaling.',
+            'regenerate_quality_disabled' => 'Disabled because source is only :source.',
+            'quality_exceeds_source' => 'Cannot regenerate :quality because the source video height is only :source.',
+            'reapply_watermark' => 'Re-encode all existing HLS qualities from the source file using the current watermark settings. Faster than a full re-transcode.',
+            'unknown_source_height' => 'unknown',
+        ],
+        'actions' => [
+            'menu' => 'Actions',
+            'preview' => 'Preview',
+            'retry' => 'Retry transcoding',
+            'regenerate' => 'Regenerate quality',
+            'reapply_watermark' => 'Apply watermark to streams',
+            'trash_bulk' => 'Move to trash',
+            'force_delete_bulk' => 'Force delete',
+        ],
+        'notifications' => [
+            'regenerate_started' => 'Regeneration queued',
+            'regenerate_started_body' => ':count quality stream(s) were queued on the video-engine worker.',
+            'poster_restore_queued' => 'Poster restore queued',
+            'poster_restore_queued_body' => 'A frame will be extracted from the source video on the video-engine worker.',
+        ],
+    ],
+
+    'picker' => [
+        'upload' => 'Upload video',
+        'upload_video' => 'Source video',
+        'upload_help' => 'MP4, MOV, WebM, MKV, or AVI. Save the form to store the original and queue HLS transcoding.',
+        'upload_replace_help' => 'Upload a new file and save to replace the current video and re-queue transcoding.',
+        'poster_upload' => 'Custom poster image',
+        'poster_help' => 'Optional. If empty, a frame is extracted at the timestamp below (config default: 5s).',
+        'poster_or' => 'or extract a frame at',
+        'seconds' => 'seconds',
+        'thumbnail_at' => 'Extract frame at',
+        'thumbnail_at_help' => 'Choose the time position in the video (hours : minutes : seconds). Used when no custom poster is uploaded.',
+        'status' => 'Transcoding status',
+        'queue' => 'Queue',
+        'errors' => 'Errors',
+        'no_video' => 'No video attached yet',
+        'no_video_description' => 'Select a file in the Source video field above, then save this form. HLS transcoding starts automatically on the configured queue.',
+        'no_video_help' => 'Choose a source file above and save. Target qualities: :qualities.',
+        'qualities' => 'Target qualities',
+        'qualities_ladder' => 'Encoding ladder',
+        'poster_preview' => 'Poster preview',
+        'attached_source' => 'Source file',
+        'attached_media' => 'Attached media',
+        'media_id' => 'Media ID',
+        'progress' => 'Progress',
+        'watermark_enabled' => 'Apply watermark',
+        'watermark_section' => 'Watermark',
+        'watermark_enabled_help' => 'Overlay a logo on every HLS quality during transcoding. After changing the image or settings, use “Apply watermark to streams” to update existing videos.',
+        'watermark_image' => 'Watermark image',
+        'watermark_image_help' => 'PNG or WebP with transparency recommended. Crop in the image editor and choose an optional aspect ratio. If empty, the global watermark path from config may be used.',
+        'watermark_position' => 'Position',
+        'watermark_opacity' => 'Opacity (0–1)',
+        'watermark_margin' => 'Margin',
+        'watermark_scale' => 'Size (%)',
+        'watermark_scale_help' => 'Max width as % of the encoded video.',
+        'watermark_apply_streams' => 'Apply watermark to streams',
+        'watermark_apply_streams_help' => 'Re-encode all HLS qualities from the source file with the current watermark settings. This does not re-upload the video.',
+        'watermark_apply_streams_started' => 'Watermark re-encode queued',
+        'watermark_apply_streams_started_body' => ':count quality stream(s) were queued on the video-engine worker.',
+        'watermark_positions' => [
+            'top-left' => 'Top left',
+            'top-right' => 'Top right',
+            'bottom-left' => 'Bottom left',
+            'bottom-right' => 'Bottom right',
+            'center' => 'Center',
+        ],
+    ],
+
+    'player' => [
+        'quality' => 'Quality',
+        'auto' => 'Auto',
+        'speed' => 'Speed',
+        'buffering' => 'Buffering…',
+        'not_ready' => 'HLS stream is not ready yet. Finish transcoding to preview this video.',
+        'preview_hint' => 'Segments load only after you press play. Buffer stays small to keep admin bandwidth low.',
+    ],
+];

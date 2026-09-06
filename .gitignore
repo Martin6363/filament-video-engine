@@ -1,0 +1,14 @@
+/.idea
+/.vscode
+/.phpunit.cache
+/.phpunit.result.cache
+/vendor
+/node_modules
+composer.lock
+.php-cs-fixer.cache
+.phpstan.cache
+coverage
+clover.xml
+auth.json
+*.swp
+.DS_Store

@@ -1,0 +1,77 @@
+{
+    "name": "martin6363/filament-video-engine",
+    "description": "Enterprise HLS video transcoding, adaptive streaming, and Filament UI for Laravel — FFmpeg, multi-resolution, Plyr/hls.js player, polymorphic HasVideoEngine.",
+    "type": "library",
+    "license": "proprietary",
+    "keywords": [
+        "laravel",
+        "filament",
+        "filament-plugin",
+        "video",
+        "hls",
+        "ffmpeg",
+        "transcoding",
+        "plyr",
+        "hls.js",
+        "streaming"
+    ],
+    "homepage": "https://github.com/martin6363/filament-video-engine",
+    "support": {
+        "email": "martin.khachatryan.2024@gmail.com",
+        "issues": "https://github.com/martin6363/filament-video-engine/issues",
+        "source": "https://github.com/martin6363/filament-video-engine"
+    },
+    "authors": [
+        {
+            "name": "Martin Khachatryan",
+            "email": "martin.khachatryan.2024@gmail.com",
+            "homepage": "https://github.com/martin6363",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "filament/filament": "^4.0|^5.0",
+        "illuminate/contracts": "^11.0|^12.0|^13.0",
+        "illuminate/database": "^11.0|^12.0|^13.0",
+        "illuminate/http": "^11.0|^12.0|^13.0",
+        "illuminate/queue": "^11.0|^12.0|^13.0",
+        "illuminate/routing": "^11.0|^12.0|^13.0",
+        "illuminate/support": "^11.0|^12.0|^13.0",
+        "livewire/livewire": "^3.0|^4.0",
+        "symfony/process": "^7.0|^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "phpunit/phpunit": "^11.0|^12.0"
+    },
+    "suggest": {
+        "laravel/sanctum": "Required for token-based private video API access.",
+        "league/flysystem-aws-s3-v3": "Required for AWS S3 / Cloudflare R2 / DigitalOcean Spaces disks."
+    },
+    "autoload": {
+        "psr-4": {
+            "Martin6363\\FilamentVideoEngine\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Martin6363\\FilamentVideoEngine\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Martin6363\\FilamentVideoEngine\\FilamentVideoEngineServiceProvider"
+            ]
+        },
+        "branch-alias": {
+            "dev-main": "0.1.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

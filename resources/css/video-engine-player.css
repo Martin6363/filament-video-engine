@@ -1,0 +1,266 @@
+/**
+ * Filament-aligned dark/light theme for the Video Engine player.
+ * Uses Filament CSS variables when present (v4/v5 panels).
+ */
+.fi-ve-player {
+    --ve-radius: var(--radius-xl, 0.75rem);
+    --ve-blur: 12px;
+    --ve-bg: color-mix(in srgb, var(--color-white, #fff) 72%, transparent);
+    --ve-fg: var(--gray-950, #0f172a);
+    --ve-muted: var(--gray-500, #64748b);
+    --ve-accent: var(--primary-500, #3b82f6);
+    --ve-accent-soft: color-mix(in srgb, var(--primary-500, #3b82f6) 18%, transparent);
+    --ve-border: color-mix(in srgb, var(--gray-950, #0f172a) 8%, transparent);
+    --ve-control-bg: color-mix(in srgb, var(--color-white, #fff) 70%, transparent);
+    --ve-ring: color-mix(in srgb, var(--primary-500, #3b82f6) 28%, transparent);
+    --ve-danger: var(--danger-500, #ef4444);
+
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--ve-radius);
+    background: color-mix(in srgb, var(--gray-50, #f8fafc) 92%, var(--primary-50, #eff6ff));
+    border: 1px solid var(--ve-border);
+    box-shadow:
+        0 1px 2px color-mix(in srgb, var(--gray-950, #0f172a) 4%, transparent),
+        0 10px 28px color-mix(in srgb, var(--gray-950, #0f172a) 6%, transparent);
+    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+    color: var(--ve-fg);
+}
+
+.fi-ve-player:hover {
+    box-shadow:
+        0 1px 2px color-mix(in srgb, var(--gray-950, #0f172a) 5%, transparent),
+        0 16px 40px color-mix(in srgb, var(--gray-950, #0f172a) 10%, transparent);
+}
+
+.dark .fi-ve-player,
+html.dark .fi-ve-player,
+.fi-ve-player.theme-filament:where(.dark *),
+:where(.dark) .fi-ve-player {
+    --ve-bg: color-mix(in srgb, var(--gray-900, #0f172a) 78%, transparent);
+    --ve-fg: var(--gray-50, #f8fafc);
+    --ve-muted: var(--gray-400, #94a3b8);
+    --ve-border: color-mix(in srgb, var(--gray-50, #f8fafc) 10%, transparent);
+    --ve-control-bg: color-mix(in srgb, var(--gray-950, #020617) 55%, transparent);
+    background: linear-gradient(
+        165deg,
+        color-mix(in srgb, var(--gray-900, #0f172a) 96%, transparent),
+        color-mix(in srgb, var(--gray-800, #1e293b) 88%, var(--primary-950, #172554) 12%)
+    );
+}
+
+.fi-ve-player__video,
+.fi-ve-player .plyr,
+.fi-ve-player .plyr__video-wrapper {
+    display: block;
+    width: 100%;
+    background: #000;
+}
+
+.fi-ve-player__video,
+.fi-ve-player .plyr__video-wrapper video {
+    aspect-ratio: 16 / 9;
+}
+
+.fi-ve-player .plyr {
+    border-radius: var(--ve-radius);
+    --plyr-color-main: var(--ve-accent);
+    --plyr-range-fill-background: var(--ve-accent);
+    --plyr-video-control-background-hover: color-mix(in srgb, var(--ve-accent) 88%, transparent);
+    --plyr-audio-control-background-hover: var(--ve-accent-soft);
+    --plyr-control-radius: 0.5rem;
+    --plyr-font-family: inherit;
+    --plyr-badge-background: var(--ve-accent);
+}
+
+.fi-ve-player .plyr__controls {
+    backdrop-filter: blur(var(--ve-blur));
+    -webkit-backdrop-filter: blur(var(--ve-blur));
+    background: linear-gradient(transparent, rgba(2, 6, 23, 0.78));
+    border-bottom-left-radius: var(--ve-radius);
+    border-bottom-right-radius: var(--ve-radius);
+    padding: 0.65rem 0.85rem;
+}
+
+.fi-ve-player .plyr--full-ui input[type='range'] {
+    color: var(--ve-accent);
+}
+
+.fi-ve-player .plyr__menu__container .plyr__control[role='menuitemradio'] {
+    font-variant-numeric: tabular-nums;
+}
+
+.fi-ve-player__empty,
+.fi-ve-player__status {
+    display: grid;
+    place-items: center;
+    min-height: 12rem;
+    padding: 1.5rem;
+    color: var(--ve-muted);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.fi-ve-player.is-loading::after {
+    content: '';
+    position: absolute;
+    inset: auto 1rem 4.5rem auto;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+    border: 2px solid color-mix(in srgb, var(--ve-accent) 35%, transparent);
+    border-top-color: var(--ve-accent);
+    animation: ve-spin 0.7s linear infinite;
+    pointer-events: none;
+}
+
+.fi-ve-player.is-error {
+    border-color: color-mix(in srgb, var(--ve-danger) 45%, var(--ve-border));
+}
+
+.fi-ve-player.is-ready {
+    animation: ve-fade-in 0.35s ease;
+}
+
+.fi-ve-player .plyr__video-wrapper {
+    position: relative;
+}
+
+.fi-ve-player__buffering {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    background: rgba(2, 6, 23, 0.28);
+}
+
+.fi-ve-player.is-buffering .fi-ve-player__buffering {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fi-ve-player__buffering-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    border-radius: 9999px;
+    background: rgba(2, 6, 23, 0.62);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.fi-ve-player__buffering-spinner {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    border: 3px solid rgba(255, 255, 255, 0.22);
+    border-top-color: #fff;
+    animation: ve-spin 0.75s linear infinite;
+}
+
+.fi-ve-player__buffering-label {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.fi-ve-player.is-buffering .plyr__controls {
+    opacity: 0.72;
+    transition: opacity 0.2s ease;
+}
+
+.fi-ve-player .plyr__progress__buffer {
+    color: color-mix(in srgb, var(--ve-accent) 45%, transparent);
+}
+
+@keyframes ve-fade-in {
+    from {
+        opacity: 0.65;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes ve-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fi-ve-player,
+    .fi-ve-player.is-ready,
+    .fi-ve-player.is-loading::after,
+    .fi-ve-player__buffering-spinner {
+        transition: none;
+        animation: none;
+    }
+}
+
+/* Admin list/view preview shell */
+.fi-ve-admin-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.fi-ve-admin-preview__hint {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--gray-500, #64748b);
+}
+
+.dark .fi-ve-admin-preview__hint,
+:where(.dark) .fi-ve-admin-preview__hint {
+    color: var(--gray-400, #94a3b8);
+}
+
+.fi-ve-admin-preview__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 12rem;
+    padding: 1.25rem;
+    border-radius: var(--radius-xl, 0.75rem);
+    border: 1px dashed color-mix(in srgb, var(--gray-950, #0f172a) 12%, transparent);
+    background: color-mix(in srgb, var(--gray-50, #f8fafc) 90%, transparent);
+    text-align: center;
+    color: var(--gray-500, #64748b);
+}
+
+.dark .fi-ve-admin-preview__empty,
+:where(.dark) .fi-ve-admin-preview__empty {
+    border-color: color-mix(in srgb, var(--gray-50, #f8fafc) 12%, transparent);
+    background: color-mix(in srgb, var(--gray-900, #0f172a) 70%, transparent);
+    color: var(--gray-400, #94a3b8);
+}
+
+.fi-ve-admin-preview__poster {
+    width: min(100%, 20rem);
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius-lg, 0.5rem);
+}
+
+.fi-ve-player--preview,
+.fi-ve-player-root--preview .fi-ve-player {
+    max-width: 100%;
+}

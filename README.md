@@ -189,25 +189,6 @@ Commercial use is gated with a **Lemon Squeezy** license key.
 FILAMENT_VIDEO_ENGINE_LICENSE_KEY=your-lemonsqueezy-license-key
 ```
 
-3. The value is read as `config('filament-video-engine.license_key')`.
-
-### What the package does with the key
-
-| Step | Behaviour |
-|------|-----------|
-| First check | Activates the key via Lemon Squeezy (`instance_name` = your app host) |
-| Later checks | Validates the stored instance (avoids burning extra activation slots) |
-| Cache | Successful validation is cached locally for **30 days** |
-| API outage | If Lemon Squeezy is unreachable, the last known **valid** status is used (grace) so production does not go down mid-encode |
-
-### When the key is missing or invalid
-
-| Surface | Behaviour |
-|---------|-----------|
-| `VideoEnginePicker` | Only a warning banner is shown — upload / poster / watermark controls are hidden |
-| Queue jobs | Transcoding, quality regenerate, watermark re-apply, and poster restore are halted |
-| `VideoMedia` | Failed attempts are marked `failed` with a license error message |
-
 Banner copy:
 
 > Filament Video Engine license key is missing or invalid. Please set FILAMENT_VIDEO_ENGINE_LICENSE_KEY in your .env file.
@@ -570,7 +551,7 @@ Do **not** open a public GitHub issue for security reports. Email **martin.khach
 
 This plugin is a **paid commercial product**. A Lemon Squeezy license key is required to activate and use it.
 
-See [LICENSE.md](LICENSE.md) and [License key](#license-key).
+See [License key](#license-key).
 
 ---
 

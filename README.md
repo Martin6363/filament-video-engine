@@ -5,16 +5,9 @@ Self-hosted HLS transcoding and adaptive playback for Laravel + Filament.
 Upload a source video once. A queue worker runs FFmpeg, builds a multi-bitrate HLS ladder, extracts (or accepts) a poster, and optionally burns in a watermark. Filament shows live progress. A Plyr + hls.js player plays the result. Everything stays on your disks and your servers.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/martin6363/filament-video-engine.svg?style=flat-square)](https://packagist.org/packages/martin6363/filament-video-engine)
-[![Total Downloads](https://img.shields.io/packagist/dt/martin6363/filament-video-engine.svg?style=flat-square)](https://packagist.org/packages/martin6363/filament-video-engine)
 [![License](https://img.shields.io/packagist/l/martin6363/filament-video-engine.svg?style=flat-square)](https://github.com/martin6363/filament-video-engine/blob/main/LICENSE.md)
 [![PHP Version](https://img.shields.io/packagist/php-v/martin6363/filament-video-engine.svg?style=flat-square)](https://packagist.org/packages/martin6363/filament-video-engine)
 [![Watch the demo](https://img.shields.io/badge/YouTube-Watch%20demo-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/RbWqhhzSdm8?si=pyVtjWNsGyLJlEin)
-
-<p align="center">
-  <a href="https://youtu.be/RbWqhhzSdm8?si=pyVtjWNsGyLJlEin" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.youtube.com/vi/RbWqhhzSdm8/maxresdefault.jpg" alt="Filament Video Engine — watch the demo on YouTube" width="720" />
-  </a>
-</p>
 
 <p align="center">
   <strong>
@@ -55,12 +48,6 @@ Upload a source video once. A queue worker runs FFmpeg, builds a multi-bitrate H
 ## Demo
 
 See Filament Video Engine in action — upload, live progress, watermark, and HLS playback:
-
-<p align="center">
-  <a href="https://youtu.be/RbWqhhzSdm8?si=pyVtjWNsGyLJlEin" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.youtube.com/vi/RbWqhhzSdm8/hqdefault.jpg" alt="Watch Filament Video Engine demo on YouTube" width="560" />
-  </a>
-</p>
 
 <p align="center">
   <a href="https://youtu.be/RbWqhhzSdm8?si=pyVtjWNsGyLJlEin" target="_blank" rel="noopener noreferrer"><strong>▶ Watch the demo on YouTube</strong></a>

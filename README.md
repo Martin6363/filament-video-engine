@@ -4,18 +4,8 @@ Self-hosted HLS transcoding and adaptive playback for Laravel + Filament.
 
 Upload a source video once. A queue worker runs FFmpeg, builds a multi-bitrate HLS ladder, extracts (or accepts) a poster, and optionally burns in a watermark. Filament shows live progress. A Plyr + hls.js player plays the result. Everything stays on your disks and your servers.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/martin6363/filament-video-engine.svg?style=flat-square)](https://packagist.org/packages/martin6363/filament-video-engine)
-[![License](https://img.shields.io/packagist/l/martin6363/filament-video-engine.svg?style=flat-square)](https://github.com/martin6363/filament-video-engine/blob/main/LICENSE.md)
 [![PHP Version](https://img.shields.io/packagist/php-v/martin6363/filament-video-engine.svg?style=flat-square)](https://packagist.org/packages/martin6363/filament-video-engine)
 [![Watch the demo](https://img.shields.io/badge/YouTube-Watch%20demo-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/RbWqhhzSdm8?si=pyVtjWNsGyLJlEin)
-
-<p align="center">
-  <strong>
-    <a href="https://youtu.be/RbWqhhzSdm8?si=pyVtjWNsGyLJlEin" target="_blank" rel="noopener noreferrer">▶ Watch the plugin demo on YouTube</a>
-  </strong>
-  <br />
-  <sub>Opens in a new browser tab</sub>
-</p>
 
 ---
 

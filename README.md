@@ -195,14 +195,12 @@ Banner copy:
 
 ### After rotating a key
 
-Clear the local license cache (or wait for TTL), then set the new env value and reload config:
+Clear the local cache (or wait for TTL), then set the new env value and reload config:
 
 ```bash
 php artisan config:clear
 php artisan cache:clear
 ```
-
-Or call `app(\Martin6363\FilamentVideoEngine\Services\LicenseManager::class)->forget();`
 
 ---
 
